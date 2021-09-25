@@ -17,9 +17,19 @@
   },
   "homepage": "https://github.com/librity/nc_zoom#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "format": "prettier --write ./src"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
   }
 }
