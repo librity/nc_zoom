@@ -73,3 +73,6 @@ This project is [MIT licensed](LICENSE).
 - https://expressjs.com/en/guide/routing.html
 
 ## Resources <a name = "resources"></a>
+
+- https://www.w3schools.com/nodejs/met_path_join.asp
+- https://andybrewer.github.io/mvp/?ref=producthunt

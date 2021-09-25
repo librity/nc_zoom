@@ -1,7 +1,8 @@
-import express from "express";
+import App from './App'
 
-const port = 3000;
-const app = express();
+const port = 3000
 
-app.listen(port);
-console.log(`👂 Server listening on port ${port}`);
+const logListen = () =>
+  console.log(`👂 Server listening on http://localhost:${port}`)
+
+App.listen(port, logListen)
