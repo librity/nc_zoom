@@ -65,6 +65,7 @@ This project is [MIT licensed](LICENSE).
 - https://github.com/babel/babel
 - https://github.com/expressjs/express
 - https://github.com/pugjs/pug
+- https://github.com/websockets/ws
 
 ## Docs <a name = "docs"></a>
 
