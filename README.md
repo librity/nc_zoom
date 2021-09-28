@@ -72,6 +72,7 @@ This project is [MIT licensed](LICENSE).
 - https://babeljs.io/docs/en/
 - https://pugjs.org/api/getting-started.html
 - https://expressjs.com/en/guide/routing.html
+- https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
 
 ## Resources <a name = "resources"></a>
 

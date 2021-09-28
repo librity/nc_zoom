@@ -1,12 +1,12 @@
 import http from 'http'
-import WebSockets from 'ws'
 
-import App from './App'
+import ExpressApp from './ExpressApp'
+import initWebSocketApp from './initWebSocketApp'
 
 const port = 3000
 
-const server = http.createServer(App)
-const wsServer = new WebSockets.Server({ server })
+const server = http.createServer(ExpressApp)
+initWebSocketApp(server)
 
 const handleListen = () => {
   console.log(`👂 HTTP server listening on http://localhost:${port}`)
