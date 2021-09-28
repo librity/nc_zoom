@@ -1,16 +1,20 @@
 import WebSockets from 'ws'
 
-const handleConnection = (server, socket, request) => {
-//   console.log(server)
-//   console.log(socket)
-//   console.log(request)
-  console.log("new connection!")
-}
-
 const initWebSocketApp = (server) => {
   const wsServer = new WebSockets.Server({ server })
 
-  wsServer.on('connection', handleConnection)
+  wsServer.on('connection', (socket) => {
+    console.log('⛓️  New client connection')
+
+    socket.on('message', (message) => {
+      const messageString = message.toString()
+      console.log(`⛓️ Message received from server: '${messageString}'`)
+    })
+
+    socket.on('close', () => console.log('⛓️  Disconnected from client'))
+
+    socket.send('Hello!')
+  })
 }
 
 export default initWebSocketApp
