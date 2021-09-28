@@ -8,7 +8,9 @@ const initWebSocketApp = (server) => {
 
     socket.on('message', (message) => {
       const messageString = message.toString()
-      console.log(`⛓️ Message received from server: '${messageString}'`)
+      console.log(`⛓️  Message received from server: '${messageString}'`)
+
+      socket.send(messageString)
     })
 
     socket.on('close', () => console.log('⛓️  Disconnected from client'))

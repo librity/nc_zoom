@@ -11,15 +11,24 @@ socket.addEventListener('message', (message) => {
 })
 
 socket.addEventListener('error', (error) => {
-  console.error('Web Socket Error:', error)
+  console.error('⛓️ Web Socket Error:', error)
 })
 
 socket.addEventListener('close', () => {
   console.log('⛓️ Disconnected from WebSocket server.')
 })
 
-setTimeout(() => {
-  message = 'Hello from the browser'
+const sendMessage = (message) => {
+  console.log(`⛓️ Sending message to server: '${message}'`)
   socket.send(message)
-  console.log(`⛓️ Message sent to server: '${message}'`)
-}, 5000)
+}
+
+const messages = document.querySelector('ul')
+const messageForm = document.querySelector('form')
+
+messageForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const { value } = messageForm.querySelector('input')
+
+  sendMessage(value)
+})
