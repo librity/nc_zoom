@@ -16,7 +16,7 @@
 
 ## About <a name = "about"></a>
 
-A Zoom clone made with WebRTC and Websockets.
+A Zoom clone made with WebRTC and Socket.
 
 - [Take the course too!]()
 - [Certificate of Completion]()
@@ -66,6 +66,7 @@ This project is [MIT licensed](LICENSE).
 - https://github.com/expressjs/express
 - https://github.com/pugjs/pug
 - https://github.com/websockets/ws
+- https://github.com/socketio/socket.io
 
 ## Docs <a name = "docs"></a>
 
@@ -73,6 +74,7 @@ This project is [MIT licensed](LICENSE).
 - https://pugjs.org/api/getting-started.html
 - https://expressjs.com/en/guide/routing.html
 - https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+- https://socket.io/docs/v4/
 
 ## Resources <a name = "resources"></a>
 

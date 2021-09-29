@@ -16,25 +16,9 @@ html(lang="en")
 
         main
             section
-                h2 Welcome to Noom, the zoom clone.
+                header
+                    h2 Welcome to Noom, the zoom clone.
             hr
 
-            section
-                header
-                    h3 Messages
-
-            ul
-
-            section
-                form#nickname
-                    input(id="nickname" type="text" placeholder="Choose a nickname...", required)
-
-                    button Save
-
-                form#message
-                    input(id="message" type="text" placeholder="Write a message...", required)
-
-                    button Send
-
-
+        script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 
