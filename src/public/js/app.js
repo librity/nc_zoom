@@ -14,9 +14,7 @@ socket.addEventListener('message', (message) => {
   const { data } = message
   console.log(`⛓️ Message received from server: '${data}'`)
 
-  const li = document.createElement('li')
-  li.innerText = data
-  messages.append(li)
+  appendMessage(data)
 })
 
 socket.addEventListener('error', (error) => {
@@ -26,6 +24,12 @@ socket.addEventListener('error', (error) => {
 socket.addEventListener('close', () => {
   console.log('⛓️ Disconnected from WebSocket server.')
 })
+
+const appendMessage = (message) => {
+  const li = document.createElement('li')
+  li.innerText = message
+  messages.append(li)
+}
 
 const sendMessage = (message) => {
   console.log(`⛓️ Sending message to server: '${message}'`)
@@ -50,6 +54,7 @@ nicknameForm.addEventListener('submit', (event) => {
 messageForm.addEventListener('submit', (event) => {
   event.preventDefault()
   const { value: content } = messageForm.querySelector('input')
+  appendMessage(`You: ${content}`)
   const message = buildMessage('userMessage', content)
 
   sendMessage(message)

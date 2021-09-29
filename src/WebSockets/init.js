@@ -9,7 +9,11 @@ const setNickname = (socket, nickname) => {
 const broadcastMessage = (socket, message) => {
   const prettyMessage = `${socket.nickname}: ${message}`
 
-  sockets.forEach((sock) => sock.send(prettyMessage))
+  sockets.forEach((sock) => {
+    if (socket === sock) return
+
+    sock.send(prettyMessage)
+  })
 }
 
 const init = (server) => {
