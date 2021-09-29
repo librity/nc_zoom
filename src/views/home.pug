@@ -16,9 +16,16 @@ html(lang="en")
 
         main
             section
-                header
-                    h2 Welcome to Noom, the zoom clone.
+                h2 Welcome to Noom, the zoom clone.
             hr
+
+            section#welcome
+                header
+                    h2 Join/create a chat room.
+
+                form
+                    input(type="text" placeholder="Room name", required)
+                    button Enter Room
 
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 

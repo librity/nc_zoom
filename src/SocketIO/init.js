@@ -4,7 +4,11 @@ const init = (server) => {
   const io = SocketIO(server)
 
   io.on('connection', (socket) => {
-    console.log(socket)
+    socket.on('enterRoom', (message, done) => {
+      console.log(message)
+
+      setTimeout(done, 5000)
+    })
   })
 }
 
