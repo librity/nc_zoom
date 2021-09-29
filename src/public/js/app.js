@@ -1,15 +1,34 @@
 const socket = io()
 
+const room = document.getElementById('room')
+const roomTitle = room.querySelector('h2')
+const sendMessageForm = room.querySelector('form')
+const leaveRoomButton = document.getElementById('leave_room')
+
+room.hidden = true
+
 const welcome = document.getElementById('welcome')
-const roomForm = welcome.querySelector('form')
+const joinRoomForm = welcome.querySelector('form')
 
-roomForm.addEventListener('submit', (event) => {
+joinRoomForm.addEventListener('submit', (event) => {
   event.preventDefault()
-  const input = roomForm.querySelector('input')
+  const input = joinRoomForm.querySelector('input')
+  const { value: roomName } = input
 
-  const doneCallback = () => console.log('⛓️  Enter room message processed.')
-  socket.emit('enterRoom', { payload: input.value }, doneCallback)
+  const showRoom = (msg) => {
+    console.log('⛓️  Enter room message processed:', msg)
 
+    welcome.hidden = true
+    room.hidden = false
+
+    roomTitle.textContent = `Room ${roomName}`
+  }
+
+  socket.emit('enterRoom', roomName, showRoom)
   console.log('⛓️  Enter room message sent.')
   input.value = ''
 })
+
+leaveRoomButton.addEventListener('click', () =>
+  console.log('TODO: Leave room on click.'),
+)

@@ -4,11 +4,14 @@ const init = (server) => {
   const io = SocketIO(server)
 
   io.on('connection', (socket) => {
-    socket.on('enterRoom', (...message) => {
-      console.log(message)
-      const done = message[message.length - 1]
+    socket.onAny((event, ...args) =>
+      console.log(`🔌 Socket ${socket.id} event: '${event}'`),
+    )
 
-      setTimeout(done, 5000)
+    socket.on('enterRoom', (roomName, done) => {
+      socket.join(roomName)
+
+      done(`Successfully joined room '${roomName}'`)
     })
   })
 }
