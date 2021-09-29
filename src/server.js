@@ -1,7 +1,7 @@
 import http from 'http'
 
-import ExpressApp from './ExpressApp'
-import initWebSocketApp from './initWebSocketApp'
+import ExpressApp from './Express'
+import initWebSocketApp from './WebSockets/init'
 
 const port = 3000
 

@@ -25,7 +25,12 @@ html(lang="en")
                 ul
 
             section
-                form
+                form#nickname
+                    input(id="nickname" type="text" placeholder="Choose a nickname...", required)
+
+                    button Save
+
+                form#message
                     input(id="message" type="text" placeholder="Write a message...", required)
 
                     button Send

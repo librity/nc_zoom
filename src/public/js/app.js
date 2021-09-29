@@ -1,5 +1,9 @@
 const { host } = window.location
 
+const messages = document.querySelector('ul')
+const nicknameForm = document.querySelector('#nickname')
+const messageForm = document.querySelector('#message')
+
 const socket = new WebSocket(`ws://${host}`)
 
 socket.addEventListener('open', () => {
@@ -7,7 +11,12 @@ socket.addEventListener('open', () => {
 })
 
 socket.addEventListener('message', (message) => {
-  console.log(`⛓️ Message received from server: '${message.data}'`)
+  const { data } = message
+  console.log(`⛓️ Message received from server: '${data}'`)
+
+  const li = document.createElement('li')
+  li.innerText = data
+  messages.append(li)
 })
 
 socket.addEventListener('error', (error) => {
@@ -23,12 +32,25 @@ const sendMessage = (message) => {
   socket.send(message)
 }
 
-const messages = document.querySelector('ul')
-const messageForm = document.querySelector('form')
+const buildMessage = (type, payload) => {
+  const message = { type, payload }
+  const messageJSON = JSON.stringify(message)
+
+  return messageJSON
+}
+
+nicknameForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const { value: nickname } = nicknameForm.querySelector('input')
+  const message = buildMessage('nickname', nickname)
+
+  sendMessage(message)
+})
 
 messageForm.addEventListener('submit', (event) => {
   event.preventDefault()
-  const { value } = messageForm.querySelector('input')
+  const { value: content } = messageForm.querySelector('input')
+  const message = buildMessage('userMessage', content)
 
-  sendMessage(value)
+  sendMessage(message)
 })
