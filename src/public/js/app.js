@@ -6,9 +6,9 @@ const roomForm = welcome.querySelector('form')
 roomForm.addEventListener('submit', (event) => {
   event.preventDefault()
   const input = roomForm.querySelector('input')
-  socket.emit('enterRoom', { payload: input.value }, () => {
-    console.log('⛓️  Enter room message processed.')
-  })
+
+  const doneCallback = () => console.log('⛓️  Enter room message processed.')
+  socket.emit('enterRoom', { payload: input.value }, doneCallback)
 
   console.log('⛓️  Enter room message sent.')
   input.value = ''
