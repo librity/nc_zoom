@@ -2,10 +2,14 @@ import WebSockets from 'ws'
 
 const sockets = []
 
-const setNickname = (socket, nickname) => {}
+const setNickname = (socket, nickname) => {
+  socket['nickname'] = nickname
+}
 
-const broadcastMessage = (message) => {
-  sockets.forEach((sock) => sock.send(message))
+const broadcastMessage = (socket, message) => {
+  const prettyMessage = `${socket.nickname}: ${message}`
+
+  sockets.forEach((sock) => sock.send(prettyMessage))
 }
 
 const init = (server) => {
@@ -13,6 +17,7 @@ const init = (server) => {
 
   wsServer.on('connection', (socket) => {
     console.log('⛓️  New client connection')
+    socket['nickname'] = 'ANON'
     sockets.push(socket)
 
     socket.on('message', (message) => {
@@ -22,18 +27,8 @@ const init = (server) => {
         `⛓️  Message received from server: type: '${type}', payload: '${payload}'`,
       )
 
-      switch (type) {
-        case 'nickname':
-          setNickname(socket, payload)
-          break
-
-        case 'userMessage':
-          broadcastMessage(payload)
-          break
-
-        default:
-          break
-      }
+      if (type === 'nickname') return setNickname(socket, payload)
+      if (type === 'userMessage') return broadcastMessage(socket, payload)
     })
 
     socket.on('close', () => console.log('⛓️  Disconnected from client'))
