@@ -10,8 +10,9 @@ const init = (server) => {
 
     socket.on('enterRoom', (roomName, done) => {
       socket.join(roomName)
-
       done(`Successfully joined room '${roomName}'`)
+
+      socket.to(roomName).emit('welcome')
     })
   })
 }

@@ -2,6 +2,7 @@ const socket = io()
 
 const room = document.getElementById('room')
 const roomTitle = room.querySelector('h2')
+const messages = room.querySelector('ul')
 const sendMessageForm = room.querySelector('form')
 const leaveRoomButton = document.getElementById('leave_room')
 
@@ -32,3 +33,16 @@ joinRoomForm.addEventListener('submit', (event) => {
 leaveRoomButton.addEventListener('click', () =>
   console.log('TODO: Leave room on click.'),
 )
+
+const addMessage = (message) => {
+  const messageElement = document.createElement('li')
+  messageElement.innerText = message
+
+  messages.appendChild(messageElement)
+}
+
+socket.on('welcome', () => {
+  addMessage('Someone joined this room.')
+})
+
+sendMessageForm.addEventListener('submit', (event) => {})

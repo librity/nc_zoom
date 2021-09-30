@@ -30,6 +30,7 @@ html(lang="en")
             section#room
                 header
                     h2 
+                    button#leave_room(style={background: 'red', border: 'none'}) Leave Room
 
                 ul
                 hr
@@ -37,8 +38,6 @@ html(lang="en")
                 form
                     input(type="text" placeholder="Write a message...", required)
                     button Send
-                
-                button#leave_room Leave Room
 
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 
