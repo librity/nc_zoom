@@ -21,7 +21,7 @@ html(lang="en")
 
             section#welcome
                 header
-                    h2 Join/create a chat room.
+                    h3 Join/create a chat room.
 
                 form
                     input(type="text" placeholder="Room name", required)
@@ -29,13 +29,17 @@ html(lang="en")
 
             section#room
                 header
-                    h2 
+                    h3 
                     button#leave_room(style={background: 'red', border: 'none'}) Leave Room
 
                 ul
                 hr
 
-                form
+                form#nickname
+                    input(type="text" placeholder="Choose a nickname...", required)
+                    button Save
+
+                form#message
                     input(type="text" placeholder="Write a message...", required)
                     button Send
 
