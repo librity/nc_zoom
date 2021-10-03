@@ -5,7 +5,8 @@ const setNicknameForm = document.querySelector('form#nickname')
 var currentRoom
 
 const roomSection = document.getElementById('room')
-const roomTitle = roomSection.querySelector('h3')
+const roomTitle = roomSection.querySelector('h3#room_title')
+const usersCount = roomSection.querySelector('h4#users_count')
 const messages = roomSection.querySelector('ul#messages')
 const sendMessageForm = roomSection.querySelector('form#new_message')
 const leaveRoomButton = document.getElementById('leave_room')
@@ -21,12 +22,13 @@ joinRoomForm.addEventListener('submit', event => {
   const input = joinRoomForm.querySelector('input')
   const { value: roomName } = input
 
-  const showRoom = msg => {
+  const showRoom = (msg, newUserCount) => {
     console.log('⛓️ Enter room message processed:', msg)
 
     welcome.hidden = true
     roomSection.hidden = false
     roomTitle.textContent = `Room ${roomName}`
+    updateUserCount(newUserCount)
 
     currentRoom = roomName
   }
@@ -75,6 +77,10 @@ sendMessageForm.addEventListener('submit', event => {
   input.value = ''
 })
 
+const updateUserCount = newUserCount => {
+  usersCount.innerText = `Active users: ${newUserCount}`
+}
+
 const addMessage = message => {
   const messageElement = document.createElement('li')
   messageElement.innerText = message
@@ -82,14 +88,18 @@ const addMessage = message => {
   messages.appendChild(messageElement)
 }
 
-socket.on('user_joined_room', nickname => {
+socket.on('user_joined_room', (nickname, newUserCount) => {
   console.log('⛓️ User joined room notification received.')
+
   addMessage(`${nickname} joined this room.`)
+  updateUserCount(newUserCount)
 })
 
-socket.on('user_left_room', nickname => {
+socket.on('user_left_room', (nickname, newUserCount) => {
   console.log('⛓️ User left room notification received.')
+
   addMessage(`${nickname} left this room.`)
+  updateUserCount(newUserCount)
 })
 
 socket.on('new_room_message', message => {
@@ -105,7 +115,7 @@ const addActiveRoom = room => {
 }
 
 socket.on('active_rooms_change', newRooms => {
-  console.log('⛓️ Rooms change message received.')
+  console.log('⛓️ Active rooms change message received:', newRooms)
 
   activeRooms.innerHTML = ''
   newRooms.forEach(room => addActiveRoom(room))
