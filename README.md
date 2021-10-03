@@ -80,6 +80,7 @@ This project is [MIT licensed](LICENSE).
 
 - https://www.w3schools.com/nodejs/met_path_join.asp
 - https://andybrewer.github.io/mvp/?ref=producthunt
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
 ### WebRTC
 
