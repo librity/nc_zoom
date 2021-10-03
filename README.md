@@ -67,6 +67,7 @@ This project is [MIT licensed](LICENSE).
 - https://github.com/pugjs/pug
 - https://github.com/websockets/ws
 - https://github.com/socketio/socket.io
+- https://github.com/socketio/socket.io-admin-ui
 
 ## Docs <a name = "docs"></a>
 
@@ -82,6 +83,7 @@ This project is [MIT licensed](LICENSE).
 - https://andybrewer.github.io/mvp/?ref=producthunt
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+- https://admin.socket.io
 
 ### WebRTC
 

@@ -1,7 +1,13 @@
-import SocketIO from 'socket.io'
+import { Server } from 'socket.io'
+import { instrument } from '@socket.io/admin-ui'
 
-const init = server => {
-  const io = SocketIO(server)
+const serverConfig = {
+  cors: { origin: ['https://admin.socket.io'], credentials: true },
+}
+
+const init = httpServer => {
+  const io = new Server(httpServer, serverConfig)
+  instrument(io, { auth: false })
 
   io.on('connection', socket => {
     socket['nickname'] = 'Anon'
