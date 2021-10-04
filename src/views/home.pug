@@ -19,37 +19,5 @@ html(lang="en")
                 header
                     h2 Welcome to Noom, the zoom clone.
 
-                form#nickname
-                    input(type="text" placeholder="Choose a nickname...", required)
-                    button Save
-                hr
-
-            section#join_room
-                header
-                    h3 Active rooms:
-
-                ul#active_rooms
-                hr
-
-                form
-                    header
-                        h3 Join/create a chat room.
-
-                    input(type="text" placeholder="Room name", required)
-                    button Enter Room
-
-            section#room
-                header
-                    h3#room_title 
-                    h4#users_count
-                    button#leave_room(style={background: 'red', border: 'none'}) Leave Room
-
-                ul#messages
-                hr
-
-                form#new_message
-                    input(type="text" placeholder="Write a message...", required)
-                    button Send
-
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 
