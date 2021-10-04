@@ -19,5 +19,12 @@ html(lang="en")
                 header
                     h2 Welcome to Noom, the zoom clone.
 
+            section#my_stream
+                header
+                    button#mute Mute
+                    button#shut_camera Turn Camera Off
+
+                video#my_face(autoplay, playsinline, width="400" height="400")
+
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 

@@ -81,9 +81,13 @@ This project is [MIT licensed](LICENSE).
 
 - https://www.w3schools.com/nodejs/met_path_join.asp
 - https://andybrewer.github.io/mvp/?ref=producthunt
+- https://admin.socket.io
+
+### Vanilla Javascript
+
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
-- https://admin.socket.io
+- https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
 
 ### WebRTC
 
