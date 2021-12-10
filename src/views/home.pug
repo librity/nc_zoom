@@ -6,6 +6,7 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet" href="/public/css/app.css")
 
         link(rel="shortcut icon" href="/public/favicon.png" type="image/png")
 
@@ -24,7 +25,8 @@ html(lang="en")
                     button#mute Mute
                     button#shut_camera Turn Camera Off
 
-                video#my_face(autoplay, playsinline, width="400" height="400")
+                div.videobox
+                    video.video-stream#user_video(autoplay, playsinline, width="400")
 
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 

@@ -1,51 +1,60 @@
 const socket = io()
 
-const myFace = document.getElementById('my_face')
+const userVideoElement = document.getElementById('user_video')
 const muteButton = document.getElementById('mute')
 const cameraOffButton = document.getElementById('shut_camera')
 
+let userVideo
 let muted = false
-let cameraOn = true
+let cameraOn = false
 
 const getUserVideo = async () => {
-  let userVideoStream
-
   const constriants = {
-    audio: false,
+    audio: true,
     video: true,
   }
 
   try {
-    userVideoStream = await navigator.mediaDevices.getUserMedia(constriants)
+    userVideo = await navigator.mediaDevices.getUserMedia(constriants)
+    userVideoElement.srcObject = userVideo
+
+    cameraOn = true
   } catch (error) {
     console.log(error)
   }
-
-  return userVideoStream
 }
 
-getUserVideo().then(userVideoStream => {
-  myFace.srcObject = userVideoStream
-})
+getUserVideo()
 
 muteButton.addEventListener('click', () => {
+  if (!userVideo) return
+
   if (muted) {
+    userVideo.getAudioTracks().forEach(track => (track.enabled = true))
+
     muted = false
     muteButton.innerText = 'Mute'
     return
   }
+
+  userVideo.getAudioTracks().forEach(track => (track.enabled = false))
 
   muted = true
   muteButton.innerText = 'Unmute'
 })
 
 cameraOffButton.addEventListener('click', () => {
+  if (!userVideo) return
+
   if (cameraOn) {
+    userVideo.getVideoTracks().forEach(track => (track.enabled = true))
+
     cameraOn = false
     cameraOffButton.innerText = 'Turn Camera Off'
     return
   }
 
+  userVideo.getVideoTracks().forEach(track => (track.enabled = false))
   cameraOn = true
   cameraOffButton.innerText = 'Turn Camera On'
 })

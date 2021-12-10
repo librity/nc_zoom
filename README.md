@@ -95,3 +95,8 @@ This project is [MIT licensed](LICENSE).
 - https://github.com/webrtc/apprtc
 - https://github.com/webrtc/samples
 - https://github.com/webrtc/test-pages
+
+### CSS
+
+- https://stackoverflow.com/questions/15310158/add-border-radius-to-webcam-video-element
+- https://css-tricks.com/almanac/properties/b/border-radius/
