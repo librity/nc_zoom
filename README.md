@@ -16,9 +16,9 @@
 
 ## About <a name = "about"></a>
 
-A Zoom clone made with WebRTC and Socket.
+A Zoom clone made with WebRTC and SocketIO.
 
-- [Take the course too!]()
+- [Take the course too!](https://nomadcoders.co/noom)
 - [Certificate of Completion]()
 
 ## Getting Started <a name = "getting_started"></a>
@@ -74,8 +74,9 @@ This project is [MIT licensed](LICENSE).
 - https://babeljs.io/docs/en/
 - https://pugjs.org/api/getting-started.html
 - https://expressjs.com/en/guide/routing.html
-- https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
 - https://socket.io/docs/v4/
+- https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+- https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
 
 ## Resources <a name = "resources"></a>
 
@@ -100,3 +101,11 @@ This project is [MIT licensed](LICENSE).
 
 - https://stackoverflow.com/questions/15310158/add-border-radius-to-webcam-video-element
 - https://css-tricks.com/almanac/properties/b/border-radius/
+
+<p align="center">
+  <img src=".github/webrtc_diagram.png">
+</p>
+
+<p align="center">
+  <img src=".github/webrtc_details.png">
+</p>

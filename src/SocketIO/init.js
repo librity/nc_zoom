@@ -13,6 +13,12 @@ const init = httpServer => {
     socket.onAny((event, ...args) => {
       console.log(`🔌 Socket ${socket.id} event: '${event}'`)
     })
+
+    socket.on('join_room', (roomName, done) => {
+      socket.join(roomName)
+      done()
+      socket.to(roomName).emit('welcome')
+    })
   })
 }
 
