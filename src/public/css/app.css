@@ -1,9 +1,14 @@
+.video_control {
+  margin: 0.5rem 0;
+  margin-right: 0.25rem;
+}
+
 .videobox {
   border: 5px solid #918d8d;
   background-color: #48487a;
   border-radius: 40px;
 }
-.video-stream {
+.video_stream {
   margin: 20px;
   -webkit-border-radius: 12px;
   border-radius: 12px;

@@ -14,19 +14,17 @@ html(lang="en")
     body
         header
             h1 Noom
+            p Welcome to Noom, the zoom clone.
 
         main
-            section
-                header
-                    h2 Welcome to Noom, the zoom clone.
-
             section#my_stream
-                header
-                    button#mute Mute
-                    button#shut_camera Turn Camera Off
+                button.video_control#mute Mute
+                button.video_control#shut_camera Turn Camera Off
+                select.video_control#camera_selector
 
+            section
                 div.videobox
-                    video.video-stream#user_video(autoplay, playsinline, width="400")
+                    video.video_stream#user_video(autoplay, playsinline, width="400")
 
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 

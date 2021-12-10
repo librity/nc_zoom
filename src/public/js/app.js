@@ -2,11 +2,29 @@ const socket = io()
 
 const userVideoElement = document.getElementById('user_video')
 const muteButton = document.getElementById('mute')
-const cameraOffButton = document.getElementById('shut_camera')
+const cameraButton = document.getElementById('shut_camera')
+const cameraSelector = document.getElementById('camera_selector')
 
 let userVideo
-let muted = false
+let muted = true
 let cameraOn = false
+
+const getCameras = async () => {
+  try {
+    const allDevices = await navigator.mediaDevices.enumerateDevices()
+    const cameras = allDevices.filter(device => device.kind === 'videoinput')
+
+    cameras.forEach(camera => {
+      const option = document.createElement('option')
+      option.value = camera.deviceId
+      option.innerText = camera.label
+
+      cameraSelector.appendChild(option)
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 const getUserVideo = async () => {
   const constriants = {
@@ -17,8 +35,10 @@ const getUserVideo = async () => {
   try {
     userVideo = await navigator.mediaDevices.getUserMedia(constriants)
     userVideoElement.srcObject = userVideo
-
+    muted = false
     cameraOn = true
+
+    await getCameras()
   } catch (error) {
     console.log(error)
   }
@@ -43,18 +63,18 @@ muteButton.addEventListener('click', () => {
   muteButton.innerText = 'Unmute'
 })
 
-cameraOffButton.addEventListener('click', () => {
+cameraButton.addEventListener('click', () => {
   if (!userVideo) return
 
   if (cameraOn) {
-    userVideo.getVideoTracks().forEach(track => (track.enabled = true))
+    userVideo.getVideoTracks().forEach(track => (track.enabled = false))
 
     cameraOn = false
-    cameraOffButton.innerText = 'Turn Camera Off'
+    cameraButton.innerText = 'Turn Camera On'
     return
   }
 
-  userVideo.getVideoTracks().forEach(track => (track.enabled = false))
+  userVideo.getVideoTracks().forEach(track => (track.enabled = true))
   cameraOn = true
-  cameraOffButton.innerText = 'Turn Camera On'
+  cameraButton.innerText = 'Turn Camera Off'
 })
