@@ -16,7 +16,7 @@ const getCameraSelection = async () => {
   try {
     const allDevices = await navigator.mediaDevices.enumerateDevices()
     const cameras = allDevices.filter(device => device.kind === 'videoinput')
-    const currentCameraLabel = userVideo.getVideoTracks()[0].label
+    const currentCameraLabel = myStream.getVideoTracks()[0].label
 
     cameras.forEach(camera => {
       const option = document.createElement('option')
@@ -37,8 +37,8 @@ const getUserVideo = async deviceId => {
   try {
     const constriants = buildConstraints(deviceId)
 
-    userVideo = await navigator.mediaDevices.getUserMedia(constriants)
-    userVideoElement.srcObject = userVideo
+    myStream = await navigator.mediaDevices.getUserMedia(constriants)
+    userVideoElement.srcObject = myStream
     muted = false
     cameraOn = true
 

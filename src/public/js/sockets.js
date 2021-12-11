@@ -25,3 +25,9 @@ socket.on('answer', async answer => {
 
   myPeerConnection.setRemoteDescription(answer)
 })
+
+socket.on('ice', async ICECandidate => {
+  console.log('received ICE candidate')
+
+  myPeerConnection.addIceCandidate(ICECandidate)
+})

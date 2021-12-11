@@ -27,6 +27,10 @@ const init = httpServer => {
     socket.on('answer', (answer, roomName) => {
       socket.to(roomName).emit('answer', answer)
     })
+
+    socket.on('ice', (ICECandidate, roomName) => {
+      socket.to(roomName).emit('ice', ICECandidate)
+    })
   })
 }
 

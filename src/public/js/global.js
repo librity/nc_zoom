@@ -1,7 +1,10 @@
 const socket = io()
 
-let userVideo
+let myStream
 let muted = true
 let cameraOn = false
 let roomName = ''
 let myPeerConnection
+
+const userVideoElement = document.getElementById('user_video')
+const peerVideoElement = document.getElementById('peer_video')

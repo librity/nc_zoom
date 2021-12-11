@@ -55,6 +55,40 @@ $ npm run format
 
 ## Usage <a name = "usage"></a>
 
+### WebRTC Peer2Peer
+
+<p align="center">
+  <img src=".github/webrtc_diagram.png">
+</p>
+
+<p align="center">
+  <img src=".github/webrtc_details.png">
+</p>
+
+The (SDP)offer contains the source address of the first peer
+and details about the audio and video being shared,
+like timing information and the encoding/decoding algorithm.
+
+The second peer accepts this offer
+and generates and answer.
+The answer contains information about the second peer,
+like its address and any ICE candidates.
+
+An ICE candidate is a possible connection path between the peers.
+As one can imagine, there are many different ways that two computers
+can connect with one another, especially over long distances.
+There are also considerations over which protocols are available (UDP, TCP)
+and if any of the peers are using Network Address Translation.
+
+Once both peers accepted the offer and answer
+(which is like the contract of the peer to peer connection),
+they choose a route/`icecandidate` that will hopefully offer
+the fastest connection possible.
+
+- https://developer.mozilla.org/en-US/docs/Glossary/SDP
+- https://developer.mozilla.org/en-US/docs/Glossary/ICE
+- https://en.wikipedia.org/wiki/Network_address_translation
+
 ## License <a name = "license"></a>
 
 This project is [MIT licensed](LICENSE).
@@ -101,11 +135,3 @@ This project is [MIT licensed](LICENSE).
 
 - https://stackoverflow.com/questions/15310158/add-border-radius-to-webcam-video-element
 - https://css-tricks.com/almanac/properties/b/border-radius/
-
-<p align="center">
-  <img src=".github/webrtc_diagram.png">
-</p>
-
-<p align="center">
-  <img src=".github/webrtc_details.png">
-</p>

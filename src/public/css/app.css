@@ -7,6 +7,8 @@
   border: 5px solid #918d8d;
   background-color: #48487a;
   border-radius: 40px;
+
+  margin-right: 0.5rem;
 }
 .video_stream {
   margin: 20px;
