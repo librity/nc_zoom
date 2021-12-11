@@ -20,13 +20,13 @@ socket.on('offer', async offer => {
   console.log('broadcast RTC answer')
 })
 
-socket.on('answer', async answer => {
+socket.on('answer', answer => {
   console.log('received RTC answer')
 
   myPeerConnection.setRemoteDescription(answer)
 })
 
-socket.on('ice', async ICECandidate => {
+socket.on('ice', ICECandidate => {
   console.log('received ICE candidate')
 
   myPeerConnection.addIceCandidate(ICECandidate)

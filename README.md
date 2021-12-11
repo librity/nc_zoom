@@ -45,6 +45,18 @@ $ npm run dev
 
 3. Open http://localhost:3000 on your web browser.
 
+#### Mobile w/ LocalTunnel
+
+To run on mobile, start the development server
+and run `localtunnel` in another shell:
+
+```bash
+$ npm i -g localtunnel
+$ lt --port 3000
+```
+
+This will return a temporary https URL that tunnels to your server.
+
 #### Format
 
 Format all source files with Prettier:
@@ -102,6 +114,7 @@ This project is [MIT licensed](LICENSE).
 - https://github.com/websockets/ws
 - https://github.com/socketio/socket.io
 - https://github.com/socketio/socket.io-admin-ui
+- https://github.com/localtunnel/localtunnel
 
 ## Docs <a name = "docs"></a>
 

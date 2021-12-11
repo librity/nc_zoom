@@ -40,6 +40,15 @@ cameraButton.addEventListener('click', () => {
 
 cameraSelector.addEventListener('input', async () => {
   const targetCameraId = cameraSelector.value
-
   await getUserVideo(targetCameraId)
+
+  if (!myPeerConnection) return
+
+  const newTrack = myStream.getVideoTracks()[0]
+  if (!newTrack) return
+
+  const videoSender = myPeerConnection
+    .getSenders()
+    .find(sender => (sender.track.kind = 'video'))
+  videoSender.replaceTrack(newTrack)
 })

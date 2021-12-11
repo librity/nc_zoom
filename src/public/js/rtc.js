@@ -10,10 +10,10 @@ const connectRTC = () => {
   })
 }
 
-const handleICECandidate = ICECandidate => {
+const handleICECandidate = data => {
   console.log('found ICE candidate')
 
-  socket.emit('ice', ICECandidate, roomName)
+  socket.emit('ice', data.candidate, roomName)
 }
 
 const handleAddStream = data => {
