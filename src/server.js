@@ -1,7 +1,7 @@
 import http from 'http'
 
 import ExpressApp from './Express'
-import initSocketIO from './SocketIO/init'
+import initSocketIO from './Sockets'
 
 const port = process.env.PORT || 3000
 

@@ -168,6 +168,7 @@ This project is [MIT licensed](LICENSE).
 - https://www.w3schools.com/nodejs/met_path_join.asp
 - https://andybrewer.github.io/mvp/?ref=producthunt
 - https://admin.socket.io
+- https://babel.dev/docs/en/babel-cli
 
 ### Vanilla Javascript
 
@@ -193,3 +194,8 @@ This project is [MIT licensed](LICENSE).
 
 - https://stackoverflow.com/questions/15310158/add-border-radius-to-webcam-video-element
 - https://css-tricks.com/almanac/properties/b/border-radius/
+
+### Heroku Deploy
+
+- https://github.com/musekorea/fullstack-ZoomClone
+- https://www.freecodecamp.org/news/how-to-deploy-your-site-using-express-and-heroku/
