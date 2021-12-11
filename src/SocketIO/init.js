@@ -17,7 +17,7 @@ const init = httpServer => {
     socket.on('join_room', roomName => {
       socket.join(roomName)
 
-      socket.to(roomName).emit('welcome')
+      socket.to(roomName).emit('someone_joined')
     })
 
     socket.on('offer', (offer, roomName) => {

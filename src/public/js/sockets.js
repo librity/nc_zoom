@@ -1,5 +1,5 @@
-socket.on('welcome', async () => {
-  console.log('someone joined the room')
+socket.on('someone_joined', async () => {
+  addInfoMessage('Someone joined the room.')
 
   const offer = await myPeerConnection.createOffer()
   myPeerConnection.setLocalDescription(offer)

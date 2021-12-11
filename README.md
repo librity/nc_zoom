@@ -8,7 +8,7 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Concepts](#concepts)
+- [Notes](#notes)
 - [License](#license)
 - [Packages](#packages)
 - [Docs](#docs)
@@ -65,20 +65,23 @@ Format all source files with Prettier:
 $ npm run format
 ```
 
-## Concepts <a name = "concepts"></a>
+## Notes <a name = "notes"></a>
 
 ### WebRTC means fine Peer2Peer (W.R./M.F.P.)
 
+> It's Toasted 🚬
+
 Web Real-Time Communication is an API native to modern browsers
 that facilitates video streaming with a peer-to-peer protocol.
-It also supports `datachannel`s that lets peers share arbitrary data.
+It also supports `datachannel`s that let peers share arbitrary data.
 
 <p align="center">
   <img src=".github/webrtc_diagram.png">
 </p>
 
 Since WebRTC doesn't have any signaling (peer discovery),
-we use a SocketIO server to establish the initial handshake between peers.
+so we use a SocketIO server to establish the initial
+handshake between both peers.
 
 <p align="center">
   <img src=".github/webrtc_details.png">
@@ -107,8 +110,6 @@ the fastest connection possible.
 - https://developer.mozilla.org/en-US/docs/Glossary/SDP
 - https://developer.mozilla.org/en-US/docs/Glossary/ICE
 - https://en.wikipedia.org/wiki/Network_address_translation
-
-> It's Toasted 🚬
 
 ### Scalability
 
@@ -172,6 +173,7 @@ This project is [MIT licensed](LICENSE).
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 - https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+- https://www.javatpoint.com/how-to-add-a-class-to-an-element-using-javascript
 
 ### WebRTC
 

@@ -1,7 +1,7 @@
 const buildConstraints = deviceId => {
   const constriants = {
-    audio: true,
-    // audio: false,
+    // audio: true,
+    audio: false,
     video: { facingMode: 'user' },
   }
   if (!deviceId) return constriants

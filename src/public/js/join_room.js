@@ -1,11 +1,12 @@
-const welcomeDiv = document.getElementById('welcome')
-const joinRoomForm = document.getElementById('join_room')
+const joinRoomDiv = document.getElementById('join_room')
+const joinRoomForm = document.getElementById('join_room_form')
 
 const startCall = async () => {
-  welcomeDiv.hidden = true
+  joinRoomDiv.hidden = true
   callDiv.hidden = false
 
   await getUserVideo()
+  addInfoMessage('Audio and Video ready.')
   connectRTC()
 }
 

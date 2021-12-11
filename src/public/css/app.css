@@ -15,3 +15,25 @@
   -webkit-border-radius: 12px;
   border-radius: 12px;
 }
+
+.call_chat {
+  margin-top: 10px;
+  padding: 5px;
+
+  border-radius: 5px;
+  background-color: #000000;
+}
+
+.info_message {
+  margin: 0.5rem 1rem;
+
+  border-bottom: 1px #808080 solid;
+
+  color: #ffff00;
+}
+
+.chat_message {
+  margin: 0.5rem 1rem;
+
+  border-bottom: 1px #808080 solid;
+}

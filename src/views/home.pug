@@ -17,9 +17,9 @@ html(lang="en")
             p Welcome to Noom, the zoom clone.
 
         main
-            div#welcome
+            div#join_room
                 section
-                    form#join_room
+                    form#join_room_form
                         input(placeholder="room name", required, type="text")
                         button Enter Room
 
@@ -28,6 +28,7 @@ html(lang="en")
                     button.video_control#mute Mute
                     button.video_control#shut_camera Turn Camera Off
                     select.video_control#camera_selector
+
                 section
                     div.videobox
                         video.video_stream#user_video(autoplay, playsinline, width="400")
@@ -35,11 +36,14 @@ html(lang="en")
                     div.videobox
                         video.video_stream#peer_video(autoplay, playsinline, width="400")
 
+                section.call_chat#call_chat
+
         script(src="/socket.io/socket.io.js")
 
-        script(src="/public/js/global.js")  
-        script(src="/public/js/video.js")  
+        script(src="/public/js/global.js")
+        script(src="/public/js/call_chat.js") 
+        script(src="/public/js/video.js")
         script(src="/public/js/rtc.js")
-        script(src="/public/js/sockets.js")  
-        script(src="/public/js/welcome.js") 
-        script(src="/public/js/call.js") 
+        script(src="/public/js/sockets.js")
+        script(src="/public/js/join_room.js") 
+        script(src="/public/js/call.js")
