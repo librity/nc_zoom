@@ -16,6 +16,7 @@ joinRoomForm.addEventListener('submit', async event => {
 
   const input = joinRoomForm.querySelector('input')
   socket.emit('join_room', input.value)
+  console.log('🔌 Join room request sent.')
 
   roomName = input.value
   input.value = ''

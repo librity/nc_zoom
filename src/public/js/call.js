@@ -1,9 +1,27 @@
 const callDiv = document.getElementById('call')
+
+const leaveRoomButton = document.getElementById('leave_room')
 const muteButton = document.getElementById('mute')
 const cameraButton = document.getElementById('shut_camera')
 const cameraSelector = document.getElementById('camera_selector')
 
 callDiv.hidden = true
+
+leaveRoomButton.addEventListener('click', () => {
+  const leaveRoom = msg => {
+    console.log('🔌 Leave room message processed:', msg)
+
+    joinRoomDiv.hidden = false
+    callDiv.hidden = true
+    roomName = ''
+
+    removeUserVideo()
+    removePeerConnection()
+  }
+
+  socket.emit('leave_room', roomName, leaveRoom)
+  console.log('🔌 Leave room request sent.')
+})
 
 muteButton.addEventListener('click', () => {
   if (!myStream) return

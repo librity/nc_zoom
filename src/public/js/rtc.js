@@ -20,7 +20,7 @@ const connectRTC = () => {
   myPeerConnection.addEventListener('icecandidate', handleICECandidate)
   myPeerConnection.addEventListener('addstream', handleAddStream)
 
-  setUpChat()
+  initChatChannel()
 
   myStream.getTracks().forEach(track => {
     myPeerConnection.addTrack(track, myStream)
@@ -28,19 +28,20 @@ const connectRTC = () => {
 }
 
 const handleICECandidate = data => {
-  console.log('found ICE candidate')
+  console.log('🤝 Found ICE candidate.')
 
   socket.emit('ice', data.candidate, roomName)
+  console.log('🔌 Broadcasting ICE candidate to peer.')
 }
 
 const handleAddStream = data => {
-  console.log('got a stream from peer')
+  console.log('🤝 Got AV stream from peer.')
   addInfoMessage("Receiving peer's audio and video stream.")
 
   peerVideoElement.srcObject = data.stream
 }
 
-const setUpChat = () => {
+const initChatChannel = () => {
   const chatChannelOptions = {
     negotiated: true,
     id: 0,
@@ -48,8 +49,18 @@ const setUpChat = () => {
 
   chatChannel = myPeerConnection.createDataChannel('chat', chatChannelOptions)
   chatChannel.onmessage = event => {
+    console.log('🤝 Recieved chat message from peer.')
     const prettyMessage = `New message: ${event.data}`
 
     addChatMessage(prettyMessage)
   }
+}
+
+const removePeerConnection = () => {
+  myPeerConnection = undefined
+  chatChannel = undefined
+}
+
+const removePeerVideo = () => {
+  peerVideoElement.srcObject = undefined
 }

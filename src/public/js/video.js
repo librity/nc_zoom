@@ -47,3 +47,13 @@ const getUserVideo = async deviceId => {
     console.log(error)
   }
 }
+
+const removeUserVideo = () => {
+  userVideoElement.srcObject = undefined
+
+  myStream = undefined
+  muted = true
+  cameraOn = false
+
+  cameraSelector.innerHTML = ''
+}

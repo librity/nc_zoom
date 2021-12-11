@@ -14,6 +14,12 @@ const init = httpServer => {
       console.log(`🔌 Socket ${socket.id} event: '${event}'`)
     })
 
+    socket.on('disconnecting', () => {
+      socket.rooms.forEach(roomName => {
+        socket.to(roomName).emit('peer_left_room')
+      })
+    })
+
     socket.on('join_room', roomName => {
       socket.join(roomName)
 
@@ -30,6 +36,12 @@ const init = httpServer => {
 
     socket.on('ice', (ICECandidate, roomName) => {
       socket.to(roomName).emit('ice', ICECandidate)
+    })
+
+    socket.on('leave_room', (roomName, done) => {
+      socket.leave(roomName)
+      socket.to(roomName).emit('peer_left_room')
+      done()
     })
   })
 }

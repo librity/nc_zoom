@@ -3,6 +3,11 @@
   margin-right: 0.25rem;
 }
 
+.leave_room {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
 .videobox {
   border: 5px solid #918d8d;
   background-color: #48487a;
