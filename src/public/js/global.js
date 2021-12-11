@@ -1,3 +1,7 @@
 const socket = io()
 
-var roomName = ''
+let userVideo
+let muted = true
+let cameraOn = false
+let roomName = ''
+let myPeerConnection

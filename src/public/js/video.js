@@ -1,10 +1,7 @@
-let userVideo
-let muted = true
-let cameraOn = false
-
 const buildConstraints = deviceId => {
   const constriants = {
-    audio: true,
+    // audio: true,
+    audio: false,
     video: { facingMode: 'user' },
   }
   if (!deviceId) return constriants

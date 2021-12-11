@@ -1,11 +1,12 @@
 const welcomeDiv = document.getElementById('welcome')
 const joinRoomForm = document.getElementById('join_room')
 
-const startCall = () => {
+const startCall = async () => {
   welcomeDiv.hidden = true
   callDiv.hidden = false
 
-  getUserVideo()
+  await getUserVideo()
+  connectRTC()
 }
 
 joinRoomForm.addEventListener('submit', event => {
