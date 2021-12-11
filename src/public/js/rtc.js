@@ -16,8 +16,11 @@ const connectRTC = () => {
   myPeerConnection = new RTCPeerConnection({
     iceServers: googleTestingSTUNServers,
   })
+
   myPeerConnection.addEventListener('icecandidate', handleICECandidate)
   myPeerConnection.addEventListener('addstream', handleAddStream)
+
+  setUpChat()
 
   myStream.getTracks().forEach(track => {
     myPeerConnection.addTrack(track, myStream)
@@ -32,6 +35,21 @@ const handleICECandidate = data => {
 
 const handleAddStream = data => {
   console.log('got a stream from peer')
+  addInfoMessage("Receiving peer's audio and video stream.")
 
   peerVideoElement.srcObject = data.stream
+}
+
+const setUpChat = () => {
+  const chatChannelOptions = {
+    negotiated: true,
+    id: 0,
+  }
+
+  chatChannel = myPeerConnection.createDataChannel('chat', chatChannelOptions)
+  chatChannel.onmessage = event => {
+    const prettyMessage = `New message: ${event.data}`
+
+    addChatMessage(prettyMessage)
+  }
 }

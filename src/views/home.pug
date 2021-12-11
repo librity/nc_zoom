@@ -37,6 +37,11 @@ html(lang="en")
                         video.video_stream#peer_video(autoplay, playsinline, width="400")
 
                 section.call_chat#call_chat
+                    div#messages
+
+                    form.chat_message_form#chat_message_form
+                        input(placeholder="type a message", required, type="text")
+                        button Send
 
         script(src="/socket.io/socket.io.js")
 

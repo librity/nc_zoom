@@ -1,4 +1,5 @@
 socket.on('someone_joined', async () => {
+  console.log('someone joined the room')
   addInfoMessage('Someone joined the room.')
 
   const offer = await myPeerConnection.createOffer()
