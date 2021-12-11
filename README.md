@@ -18,8 +18,9 @@
 
 A Zoom clone made with WebRTC and SocketIO.
 
+- [Production App](https://zoomclone1776.herokuapp.com/)
 - [Take the course too!](https://nomadcoders.co/noom)
-- [Certificate of Completion]()
+- [Certificate of Completion](https://nomadcoders.co/certs/181c4ba0-2592-4cbb-bc3e-971d700210ef)
 
 ## Getting Started <a name = "getting_started"></a>
 
