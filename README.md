@@ -1,14 +1,14 @@
 # [Nomad Coders - Zoom Clone]()
 
 <p align="center">
-  <img src=".github/">
+  <img src=".github/demo.png">
 </p>
 
 ## Table of Contents
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Usage](#usage)
+- [Concepts](#concepts)
 - [License](#license)
 - [Packages](#packages)
 - [Docs](#docs)
@@ -65,13 +65,20 @@ Format all source files with Prettier:
 $ npm run format
 ```
 
-## Usage <a name = "usage"></a>
+## Concepts <a name = "concepts"></a>
 
-### WebRTC Peer2Peer
+### WebRTC means fine Peer2Peer (W.R./M.F.P.)
+
+Web Real-Time Communication is an API native to modern browsers
+that facilitates video streaming with a peer-to-peer protocol.
+It also supports `datachannel`s that lets peers share arbitrary data.
 
 <p align="center">
   <img src=".github/webrtc_diagram.png">
 </p>
+
+Since WebRTC doesn't have any signaling (peer discovery),
+we use a SocketIO server to establish the initial handshake between peers.
 
 <p align="center">
   <img src=".github/webrtc_details.png">
@@ -101,6 +108,34 @@ the fastest connection possible.
 - https://developer.mozilla.org/en-US/docs/Glossary/ICE
 - https://en.wikipedia.org/wiki/Network_address_translation
 
+> It's Toasted 🚬
+
+### Scalability
+
+<p align="center">
+  <img src=".github/webrtc_mesh.jpg">
+</p>
+
+The architecture we use in this project performs
+poorly with more than a couple peers.
+
+<p align="center">
+  <img src=".github/webrtc_sfu.webp">
+</p>
+
+There are better alternatives like multipoint control unit (MCU)
+and the selective forwarding unit (SFU).
+
+- https://voximplant.com/blog/an-introduction-to-selective-forwarding-units
+- https://github.com/livekit/livekit-server
+
+### STUN Server
+
+> STUN Servers allow clients to find out their public address,
+> the type of NAT they are behind
+> and the Internet side port associated
+> by the NAT with a particular local port.
+
 ## License <a name = "license"></a>
 
 This project is [MIT licensed](LICENSE).
@@ -124,6 +159,7 @@ This project is [MIT licensed](LICENSE).
 - https://socket.io/docs/v4/
 - https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
 - https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
+- https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/createDataChannel
 
 ## Resources <a name = "resources"></a>
 
@@ -143,6 +179,12 @@ This project is [MIT licensed](LICENSE).
 - https://github.com/webrtc/apprtc
 - https://github.com/webrtc/samples
 - https://github.com/webrtc/test-pages
+
+### Networking
+
+- https://www.3cx.com/pbx/what-is-a-stun-server/
+- https://en.wikipedia.org/wiki/Network_address_translation
+- https://en.wikipedia.org/wiki/STUN
 
 ### CSS
 
