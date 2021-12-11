@@ -9,11 +9,12 @@ const startCall = async () => {
   connectRTC()
 }
 
-joinRoomForm.addEventListener('submit', event => {
+joinRoomForm.addEventListener('submit', async event => {
   event.preventDefault()
-  const input = joinRoomForm.querySelector('input')
+  await startCall()
 
-  socket.emit('join_room', input.value, startCall)
+  const input = joinRoomForm.querySelector('input')
+  socket.emit('join_room', input.value)
 
   roomName = input.value
   input.value = ''
